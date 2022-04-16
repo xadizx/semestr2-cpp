@@ -23,8 +23,8 @@ class Company
     friend class Company;
 
   public:
-    Project(string name = "Sample project", string clientName = "Company", bool status = Company::randomNumber(0, 1)): id(projectsCreated)
-    
+    Project(string name = "Sample project", string clientName = "Company", bool status = Company::randomNumber(0, 1)) : id(projectsCreated)
+
     {
       this->name = name;
       this->clientName = clientName;
@@ -61,4 +61,16 @@ public:
   void removeProject(size_t);
   void editProject(size_t);
   void projectsManager();
+
+  Company &operator=(const Company &);
+  
+  // ta funkcja nizej ma byc z Company::Project&
+  Company::Project &operator[](int index);
+
+  friend ostream &operator<<(ostream &out, const Company &company)
+  {
+    for (int i = 0; i < company.projectsSize; i++)
+      out << company.projects[i]->getName() << "\t";
+    return out;
+  }
 };

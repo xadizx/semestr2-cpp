@@ -128,10 +128,9 @@ void Company::printActiveProjects()
   cout << "\x1B[33m";
   cout << "<======= Active projects =======>\n";
   cout << "\033[0m";
-
-  for (int i = 0; i < this->projectsSize; i++)
+  for(int i = 0; i < this->projectsSize; i++)
   {
-    if (this->projects[i]->status == true)
+    if(this->projects[i]->getStatus())
     {
       this->projects[i]->print();
       cout << "\n";
@@ -201,4 +200,28 @@ void Company::projectsManager()
       break;
     }
   }
+}
+
+Company &Company::operator=(const Company &oldObj)
+{
+  if (&oldObj != this)
+  {
+    this->removeProjects();
+
+    name = oldObj.name;
+    projectsSize = oldObj.projectsSize;
+    projects = new Project *[projectsSize];
+
+    for (size_t i = 0; i < projectsSize; i++)
+    {
+      projects[i] = new Project(*oldObj.projects[i]);
+    }
+  }
+  return *this;
+}
+
+Company::Project &Company::operator[](int index)
+{
+  assert(0 <= index && index < projectsSize);
+  return *projects[index];
 }
