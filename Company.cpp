@@ -128,9 +128,9 @@ void Company::printActiveProjects()
   cout << "\x1B[33m";
   cout << "<======= Active projects =======>\n";
   cout << "\033[0m";
-  for(int i = 0; i < this->projectsSize; i++)
+  for (int i = 0; i < this->projectsSize; i++)
   {
-    if(this->projects[i]->getStatus())
+    if (this->projects[i]->getStatus())
     {
       this->projects[i]->print();
       cout << "\n";
@@ -220,8 +220,7 @@ Company &Company::operator=(const Company &oldObj)
   return *this;
 }
 
-Company::Project &Company::operator[](int index)
+Company::Project *Company::operator[](const size_t i)
 {
-  assert(0 <= index && index < projectsSize);
-  return *projects[index];
+  return projects[i];
 }
