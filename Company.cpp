@@ -1,13 +1,5 @@
 #include "Company.h"
 
-int Company::randomNumber(int begin, int end)
-{
-  random_device seed;
-  mt19937 engine(seed());
-  uniform_int_distribution<int> uniformDist(begin, end);
-  return uniformDist(engine);
-}
-
 void Company::Project::print()
 {
   cout << "ID: " << this->id << "\n";

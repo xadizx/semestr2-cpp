@@ -1,18 +1,16 @@
 #pragma once
-#include "Employee.h"
-#include "Company.h"
+#include <random>
 
-void menu();
+using namespace std;
 
 class Utilities
 {
 public:
-  void static menu(Company *&, Employee *&);
-
-  void static createProject(Company::Project *&);
-  void static removeProject(Company::Project *&);
-
-  void static createProject(Company::Project *&, const size_t);
-  void static printProject(Company::Project *&, const size_t);
-  void static removeProject(Company::Project *&, const size_t);
+  static int randomNumber(int begin, int end)
+  {
+    random_device seed;
+    mt19937 engine(seed());
+    uniform_int_distribution<int> uniformDist(begin, end);
+    return uniformDist(engine);
+  }
 };

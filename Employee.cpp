@@ -72,7 +72,6 @@ void addEmployee(Employee *&employees, size_t &size)
         temp[i].setLastName(employees[i].getLastName());
         temp[i].setPesel(employees[i].getPesel());
         temp[i].setBirthYear(employees[i].getBirthYear());
-        // temp[i] = employees[i];
     }
 
     delete[] employees;
