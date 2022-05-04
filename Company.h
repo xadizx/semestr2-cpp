@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include <random>
-
+#include "Utilities.h"
 using namespace std;
 
 class Company
@@ -10,7 +9,7 @@ class Company
   string name;
   size_t projectsSize;
 
-  friend class Utilities;
+  friend class Menu;
 
   class Project
   {
@@ -23,7 +22,7 @@ class Company
     friend class Company;
 
   public:
-    Project(string name = "Sample project", string clientName = "Company", bool status = Company::randomNumber(0, 1)) : id(projectsCreated)
+    Project(string name = "Sample project", string clientName = "Company", bool status = Utilities::randomNumber(0, 1)) : id(projectsCreated)
 
     {
       this->name = name;
@@ -42,7 +41,6 @@ class Company
   Project **projects;
 
 public:
-  static int randomNumber(int begin, int end);
 
   Company(string name = "Sample company", size_t projectsSize = 5);
   ~Company();

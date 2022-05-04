@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <locale>
-#include "Utilities.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -14,5 +14,5 @@ int main()
 	Employee *employees = nullptr;
 
 	setlocale(LC_CTYPE, "Polish");
-	Utilities::menu(company, employees);
+	Menu::menu(company, employees);
 }
