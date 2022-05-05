@@ -63,7 +63,7 @@ public:
   void projectsManager();
 
   Company &operator=(const Company &);
-  Company::Project* operator [](const size_t);
+  Company::Project &operator[](const size_t);
   friend ostream &operator<<(ostream &out, const Company &company)
   {
     for (int i = 0; i < company.projectsSize; i++)

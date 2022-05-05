@@ -13,6 +13,8 @@ int main()
 	Company *company = new Company();
 	Employee *employees = nullptr;
 
+	// cout << (*company)[0].getName() << endl;
+
 	setlocale(LC_CTYPE, "Polish");
 	Utilities::menu(company, employees);
 }

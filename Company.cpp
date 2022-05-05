@@ -66,7 +66,8 @@ void Company::printProjects()
 
   for (int i = 0; i < this->projectsSize; i++)
   {
-    this->projects[i]->print();
+    // this->projects[i]->print();
+    (*this)[i].print();
     cout << "\n";
   }
 }
@@ -220,7 +221,7 @@ Company &Company::operator=(const Company &oldObj)
   return *this;
 }
 
-Company::Project *Company::operator[](const size_t i)
+Company::Project &Company::operator[](const size_t i)
 {
-  return projects[i];
+  return *projects[i];
 }
